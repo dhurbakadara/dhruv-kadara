@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Dhruv Kadara | Environmental Action. Community Impact. A Better Future."
+  description="Dhruv Kadara is an environmentalist, social worker and community builder in Mumbai, co-founder of For Future India."
+>
+
+
+<header class="hero" id="top">
+  <div
+    class="photo"
+    role="img"
+    aria-label="Dhruv Kadara with volunteers"
+  ></div>
+
+  <div class="shade"></div>
+
+  <nav class="nav" aria-label="Main">
+    <b>Dhruv Kadara</b>
+
+    <div>
+      <a href="#story">Story</a>
+      <a href="#ffi">For Future India</a>
+      <a href="#impact">Impact</a>
+      <a href="#involve">Get involved</a>
+    </div>
+  </nav>
+
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">ENVIRONMENT • COMMUNITY • ACTION</p>
+
+      <h1>Dhruv Kadara</h1>
+
+      <div class="tag">
+        Environmental Action.<br class="desktop-break" />
+        Community Impact. A Better<br class="desktop-break" />
+        Future.
+      </div>
+
+      <p>
+        Working with communities and young people to protect our coast,
+        our mangroves and the city we share.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="#involve">Volunteer with us</a>
+        <a class="btn ghost" href="#story">Read the story</a>
+      </div>
+    </div>
+  </div>
+
+  <svg
+    class="waves"
+    viewBox="0 0 1440 90"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      class="wave-a"
+      d="M-80 50 C 160 10, 320 90, 560 50 S 960 10, 1200 50 S 1440 80, 1560 40 V90 H-80Z"
+    />
+  </svg>
+</header>
+
+<section class="impact-numbers" id="impact">
+  <div class="wrap impact-wrap">
+    <div class="impact-heading">
+      <span class="impact-heading-main">The numbers</span>
+      <span class="impact-heading-accent">behind the impact</span>
+    </div>
+
+    <div class="impact-grid" aria-label="Impact statistics">
+      <div class="impact-item">
+        <strong class="impact-value" data-target="6" data-suffix="+ Years" data-type="years">0</strong>
+        <span>Environmental Action</span>
+      </div>
+      <div class="impact-item">
+        <strong class="impact-value" data-target="21.5" data-suffix="K+" data-type="k">0</strong>
+        <span>Volunteers Engaged</span>
+      </div>
+      <div class="impact-item">
+        <strong class="impact-value" data-target="400" data-suffix="K+ KG" data-type="kg">0</strong>
+        <span>Waste Removed</span>
+      </div>
+      <div class="impact-item">
+        <strong class="impact-value" data-target="1" data-suffix=" Planet" data-type="planet">0</strong>
+        <span>Worth Protecting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function formatValue(value, type) {
+    if (type === 'years') return `${Math.round(value)}+ Years`;
+    if (type === 'k') return `${Number(value).toFixed(value < 10 ? 1 : 0).replace(/\.0$/, '')}K+`;
+    if (type === 'kg') return `${Math.round(value)}K+ KG`;
+    return `${Math.round(value)} Planet`;
+  }
+
+  function animateValue(element, target, type, duration = 1500) {
+    const start = performance.now();
+    const startValue = 0;
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = startValue + (target - startValue) * eased;
+      element.textContent = formatValue(current, type);
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        element.textContent = formatValue(target, type);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  function animateStats() {
+    const stats = [...document.querySelectorAll('.impact-value')];
+    if (!stats.length) return;
+
+    if (prefersReducedMotion) {
+      stats.forEach((stat) => {
+        const target = Number(stat.dataset.target);
+        const type = stat.dataset.type;
+        stat.textContent = formatValue(target, type);
+      });
+      return;
+    }
+
+    stats.forEach((stat) => {
+      const target = Number(stat.dataset.target);
+      const type = stat.dataset.type;
+      stat.textContent = formatValue(0, type);
+      animateValue(stat, target, type, 1400);
+    });
+
+    const cycleDelay = 3000;
+    window.setTimeout(() => {
+      stats.forEach((stat) => {
+        const target = Number(stat.dataset.target);
+        const type = stat.dataset.type;
+        stat.textContent = formatValue(0, type);
+      });
+      window.setTimeout(animateStats, 150);
+    }, 3000 + 1500);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    animateStats();
+  });
+</script>
+
+<section id="story">
+  <div class="wrap story">
+    <div>
+      <h2>Turning concern into action.</h2>
+      <p class="lede">Caring about the planet is the easy part. Showing up on the shoreline with a hundred other people is where change begins.</p>
+    </div>
+    <div>
+      <p>Dhruv Kadara is an environmentalist, social worker, community builder and digital creator based in Mumbai. He works on environmental and social change through grassroots action, youth participation, awareness and technology.</p>
+      <p>His work centres on environmental conservation, waste management, beach and mangrove cleanups, and practical solutions that ordinary communities can carry forward. He believes lasting change comes from people taking part, not only from people watching.</p>
+      <p>Whether on a beach, in a college hall or online, the aim stays the same: make it easy for the next person to take the first step.</p>
+    </div>
+  </div>
+</section>
+
+<section class="focus" id="focus">
+  <div class="wrap">
+    <h2>Where the work happens</h2>
+    <p>Four areas of focus, each built around people showing up together.</p>
+    <div class="tiles">
+      <div class="tile"><h3>Beach and mangrove cleanups</h3><p>Community-led cleanups that protect Mumbai's coastline and its fragile mangrove belts.</p></div>
+      <div class="tile"><h3>Waste management</h3><p>Practical, local approaches to reducing and handling waste, starting where it is created.</p></div>
+      <div class="tile"><h3>Youth participation</h3><p>Giving students and young professionals a real role in environmental action.</p></div>
+      <div class="tile"><h3>Awareness and technology</h3><p>Using digital storytelling and tools to reach more people and keep them involved.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ffi">
+  <div class="wrap ffi">
+    <div class="ffi-mark" aria-hidden="true">FFI</div>
+    <div>
+      <h2>For Future India</h2>
+      <p>For Future India (FFI) is the environmental organisation Dhruv co-founded to bring citizens, students and institutions together around practical environmental work.</p>
+      <p>FFI turns awareness into participation: organising cleanups, engaging young volunteers and building a community that keeps coming back.</p>
+      <a class="btn" href="#involve">Join FFI</a>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:0">
+  <div class="wrap">
+    <h2>Campaigns and collaborations</h2>
+    <p>A running record of the work. Add dates, places and partners for each entry.</p>
+    <div class="work">
+      <div><h3>Beach cleanup drives</h3><p>Add the beach, date, volunteer count and partner organisations.</p></div>
+      <div><h3>Mangrove conservation days</h3><p>Add the site, what was done and who joined.</p></div>
+      <div><h3>College and youth sessions</h3><p>Add the institution, topic and number of participants.</p></div>
+      <div><h3>Media, talks and recognition</h3><p>Add features, speaking events and awards with links.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="involve" id="involve">
+  <div class="wrap">
+    <h2>Take the first step</h2>
+    <p>Pick the way that suits you. Every route starts with a short message.</p>
+    <div class="ways">
+      <div class="way"><div><h3>Volunteer</h3><p>Join the next cleanup or help organise one.</p></div><a href="mailto:you@example.com?subject=Volunteer">Email to volunteer</a></div>
+      <div class="way"><div><h3>Partner</h3><p>NGOs, companies and colleges: let's plan something together.</p></div><a href="mailto:you@example.com?subject=Partnership">Start a partnership</a></div>
+      <div class="way"><div><h3>Invite Dhruv to speak</h3><p>Sessions on youth action, cleanups and community building.</p></div><a href="mailto:you@example.com?subject=Speaking">Request a session</a></div>
+      <div class="way"><div><h3>Support the work</h3><p>Help fund supplies, transport and outreach.</p></div><a href="mailto:you@example.com?subject=Support">Ask how to help</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Stay connected</h2>
+    <div class="social">
+      <a href="https://www.instagram.com/dhruv_kadara/" target="_blank" rel="noopener">
+  Instagram
+</a><a href="https://in.linkedin.com/in/dhurbakadara" target="_blank" rel="noopener">
+  LinkedIn
+</a><a href="https://youtube.com/@dhruvkadara" target="_blank" rel="noopener">
+  YouTube
+</a><a href="https://x.com/DhruvKadara" target="_blank" rel="noopener">X</a><a href="https://www.forfutureindia.org/" target="_blank" rel="noopener">For Future India</a>
+    </div>
+    <p style="font-size:.9rem;margin:0">Dhruv Kadara, Mumbai, India. Turning concern into action.</p>
+  </div>
+</footer>
+
+</Layout>
