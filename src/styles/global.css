@@ -58,7 +58,7 @@ section{padding:84px 0}
 
 /* ffi */
 .ffi{display:grid;gap:36px;grid-template-columns:1fr;align-items:center}
-.ffi-mark{aspect-ratio:1;max-width:340px;border-radius:50% 50% 50% 8%;background:conic-gradient(from 200deg,var(--tide),var(--foam),var(--buoy),var(--tide));display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:3.6rem;color:var(--deep)}
+.ffi-mark{display:block;width:100%;max-width:340px;aspect-ratio:1;object-fit:contain}
 @media(min-width:800px){.ffi{grid-template-columns:5fr 6fr}}
 
 .impact-numbers{background:#0a3a35;padding:52px 0 0}
