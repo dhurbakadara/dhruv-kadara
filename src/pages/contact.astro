@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+
+<Layout
+  title="Contact Dhruv Kadara"
+  description="Connect with Dhruv Kadara about an idea, collaboration, project or opportunity."
+>
+  <header class="page-hero">
+    <SiteNav />
+    <div class="wrap page-hero-content">
+      <p class="page-eyebrow">SAY HELLO</p>
+      <h1>Let's connect.</h1>
+      <p>Have an idea, collaboration, project or opportunity in mind? I'd love to hear from you.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap contact-layout">
+        <div>
+          <h2>Find me here</h2>
+          <p>I'm based in Mumbai, India. You can connect with me through these channels.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <h3>Email</h3>
+              <p>Email address available on request.</p>
+            </div>
+            <div class="contact-detail">
+              <h3>Instagram</h3>
+              <a href="https://www.instagram.com/dhruv_kadara/" target="_blank" rel="noopener noreferrer">dhruv_kadara</a>
+            </div>
+            <div class="contact-detail">
+              <h3>LinkedIn</h3>
+              <a href="https://in.linkedin.com/in/dhurbakadara" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            </div>
+            <div class="contact-detail">
+              <h3>YouTube</h3>
+              <a href="https://youtube.com/@dhruvkadara" target="_blank" rel="noopener noreferrer">youtube.com/@dhruvkadara</a>
+            </div>
+            <div class="contact-detail">
+              <h3>Location</h3>
+              <p>Mumbai, India</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h2>Send a message</h2>
+          <p id="form-note">This form is a presentational placeholder and is not connected to email yet.</p>
+          <form aria-describedby="form-note">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+
+            <button class="btn" type="button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>

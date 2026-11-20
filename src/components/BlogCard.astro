@@ -1,0 +1,16 @@
+---
+interface Props {
+  category: string;
+  title: string;
+  description: string;
+}
+
+const { category, title, description } = Astro.props;
+---
+
+<article class="tile blog-card">
+  <p class="blog-category">{category}</p>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a class="blog-read-more" href="/contact">Read More</a>
+</article>

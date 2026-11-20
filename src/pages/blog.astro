@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+
+const articles = [
+  {
+    category: 'Technology & AI',
+    title: 'The Future of AI and Human Work',
+    description: 'Reflections on how AI is changing work, and why human judgment and collaboration still matter.',
+  },
+  {
+    category: 'Community',
+    title: 'What Community Action Can Teach Us About Change',
+    description: 'What happens when people come together around a shared goal and keep showing up.',
+  },
+  {
+    category: 'Environment',
+    title: 'Why Environmental Action Starts With People',
+    description: 'Lasting environmental progress depends on participation, local knowledge and everyday action.',
+  },
+];
+---
+
+<Layout
+  title="Blog — Dhruv Kadara"
+  description="Thoughts from Dhruv Kadara on environment, technology, AI, community, society and ongoing learning."
+>
+  <header class="page-hero">
+    <SiteNav />
+    <div class="wrap page-hero-content">
+      <p class="page-eyebrow">NOTES &amp; PERSPECTIVES</p>
+      <h1>Ideas, Stories &amp; Perspectives</h1>
+      <p>Thoughts on environment, technology, AI, community, society and the things I'm learning along the way.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="blog-grid">
+          {articles.map((article) => <BlogCard {...article} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>

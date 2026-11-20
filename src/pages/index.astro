@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
 ---
 <Layout
   title="Dhruv Kadara | Environmental Action. Community Impact. A Better Future."
@@ -16,17 +18,7 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="shade"></div>
 
-  <nav class="nav" aria-label="Main">
-    <b>Dhruv Kadara</b>
-
-    <div>
-      <a href="https://dhruvkadara.com/">Home</a>
-      <a href="#story">Story</a>
-      <a href="#ffi">For Future India</a>
-      <a href="#impact">Impact</a>
-      <a href="#involve">Get involved</a>
-    </div>
-  </nav>
+  <SiteNav />
 
   <div class="wrap hero-content">
     <div class="hero-copy">
@@ -224,20 +216,6 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <h2>Stay connected</h2>
-    <div class="social">
-      <a href="https://www.instagram.com/dhruv_kadara/" target="_blank" rel="noopener">
-  Instagram
-</a><a href="https://in.linkedin.com/in/dhurbakadara" target="_blank" rel="noopener">
-  LinkedIn
-</a><a href="https://youtube.com/@dhruvkadara" target="_blank" rel="noopener">
-  YouTube
-</a><a href="https://x.com/DhruvKadara" target="_blank" rel="noopener"git status>X</a><a href="https://www.forfutureindia.org/" target="_blank" rel="noopener">For Future India</a>
-    </div>
-    <p style="font-size:.9rem;margin:0">Dhruv Kadara, Mumbai, India. Turning concern into action.</p>
-  </div>
-</footer>
+<SiteFooter />
 
 </Layout>
